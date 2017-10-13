@@ -3,8 +3,9 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const app = express();
+const UsersController = require('./routes/UsersController')
 mongoose.Promise = global.Promise;
-mongoose.connect(process.env.MONGODB_URI); //mongodb://localhost/idea-board
+mongoose.connect(process.env.MONGODB_URI);
 
 const connection = mongoose.connection;
 connection.on('connected', () => {
@@ -21,7 +22,7 @@ app.get('/', (req,res) => {
   res.send('Hello world!')
 })
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
-  console.log("Magic happening on port " + PORT);
+  console.log("Its all good man... on port:  " + PORT);
 })
