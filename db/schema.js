@@ -62,5 +62,5 @@ const NewsList = mongoose.model('NewsList', ListSchema)
 const User = mongoose.model('User', userSchema)
 
 module.exports = {
-    News, User
+    News, User, NewsList
 }
