@@ -1,9 +1,46 @@
 const mongoose = require('mongoose')
 
 const NewsSchema = mongoose.Schema({
-  
-})
+    source: {
+        type: String,
+        default: "Default"
+    },
+    author: {
+        type: String,
+        default: "Default"
+    },
+    date: {
+        type: String,
+        default: "Default"
+    },
+    genre: {
+        type: String,
+        default: "Default"
+    },
+    title: {
+        type: String,
+        default: "Default"
+    },
+    picture: {
+        type: String,
+        default: "Default"
+    },
+    plot: {
+        type: String,
+        default: "Default"
+    },
 
+
+
+
+})
+const ListSchema = mongoose.Schema({
+    genre: {
+        type: String,
+        default: "Default"
+    },
+    news: [NewsSchema]
+})
 const userSchema = mongoose.Schema({
     firstName: {
         type: String,
@@ -15,12 +52,15 @@ const userSchema = mongoose.Schema({
     },
     email: {
         type: String,
-    }
+        default: "Default"
+    },
+    list: [ListSchema]
 })
 
-const NewsStory = mongoose.model('NewsStory', NewsSchema)
+const News = mongoose.model('News', NewsSchema)
+const NewsList = mongoose.model('NewsList', ListSchema)
 const User = mongoose.model('User', userSchema)
 
 module.exports = {
-  NewsStory, User
+    News, User
 }
