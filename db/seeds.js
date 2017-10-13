@@ -5,7 +5,7 @@ mongoose.Promise = global.Promise
 
 const {  News, User, NewsList } = require('./schema')
 
-const fakeNews = new Idea({
+const fakeNews = new News({
     source: "Fake News",
     author: "Bill Barker",
     date: "Today",
