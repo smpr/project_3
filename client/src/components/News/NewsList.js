@@ -18,7 +18,10 @@ class NewsList extends Component {
     render() {
         return (
             <div>
-                Article List
+                
+                <div>
+                  NewsList
+                </div>
             </div>
         )
     }

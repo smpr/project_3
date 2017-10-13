@@ -1,34 +1,19 @@
-import React, { Component } from 'react'
-import { Redirect, Link } from 'react-router-dom'
-import axios from 'axios'
+import React from 'react'
 
-class HomePage extends Component {
-  state = {
-    users: []
-  }
-  componentWillMount () {
-    this.getAllUsers()
-  }
-  getAllUsers = () => {
-    axios.get('/api/users').then(res => {
-      this.setState({users: res.data})
-    })
-  }
-  
-  render () {
-    return (
-      <div>
-        <h1>Log-In</h1>
-        <h3>Please Select an Existing User</h3>
-        {this.state.users.map(user => {
+import User from '../Users/User'
+const HomePage = (props) => {
+  const userList = props.users.map((user, index)=> {
+   return <User 
+            firstName={user.firstName}
+            lastName={user.lastName}
+            />
 
-          return (<div key={user._id}>
-                    <Link to={`/user/${user._id}/NewsList`}>{user.firstName} {user.lastName}</Link>
-                    </div>)
-        })}
-      </div>
-    )
-  }
+  })
+  return (
+    <div>
+      {userList}
+    </div>
+  )
 }
 
 export default HomePage
