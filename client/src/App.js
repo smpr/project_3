@@ -5,6 +5,7 @@ import HomePage from './components/Home/HomePage'
 import CreateUser from './components/Users/CreateHome'
 import Header from './components/BoilerPlate/Header'
 import Nav from './components/BoilerPlate/Nav'
+import UserInfo from './components/Users/UserInfo'
 
 
 
@@ -22,6 +23,8 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={HomePage} />
             <Route exact path="/User/Create" component={CreateUser} />
+            <Route exact path="/User/:id" component={UserInfo} />
+
             
           </Switch>
         </div>
