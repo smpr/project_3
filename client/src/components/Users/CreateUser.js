@@ -3,8 +3,10 @@ import axios from 'axios'
 
 class CreateUser extends Component {
     state = {
-        user: []
-    }
+        user: [],
+        redirectToHome: false,
+        userId: ''
+      }
 
     handleChange = (event) => {
         const attribute = event.target.name
@@ -19,7 +21,9 @@ class CreateUser extends Component {
             'user': this.state.user
         })
         console.log(res.data)
+        this.setState({redirectToIdea: true, newUserId: res.data._id})
     }
+
 
     render() {
         return (
