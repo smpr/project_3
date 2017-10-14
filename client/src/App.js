@@ -25,12 +25,12 @@ class App extends Component {
       this.setState({ users: res.data })
     })
   }
-  
+
   render() {
     const passUser = () => {
       return (<HomePage
         users={this.state.users}
-      
+
       />)
     }
     return (
