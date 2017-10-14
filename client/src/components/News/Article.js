@@ -58,18 +58,18 @@ const Article = (props) => {
         <div>
             <HeaderBlock>
                 <SourceBlock>
-                    Source
+                    {props.source}
                 </SourceBlock>
                 <AuthorBlock>
-                    Author
+                {props.author}
                 </AuthorBlock>
                 <DateBlock>
-                    Date
+                {props.date}
                 </DateBlock>
             </HeaderBlock>
             <BodyBlock>
-                Title<br />
-                Body
+                {props.title}<br />
+                {props.plot}
             </BodyBlock>
         </div>
     );
