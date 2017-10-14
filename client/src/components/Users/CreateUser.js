@@ -4,7 +4,7 @@ import axios from 'axios'
 
 class CreateUser extends Component {
   state = {
-    user: [],
+    users: [],
     redirectToUser: false,
     userId: ''
   }
@@ -12,23 +12,23 @@ class CreateUser extends Component {
 
   handleChange = (event) => {
     const attribute = event.target.name
-    const updateUser = {...this.state.user}
+    const updateUser = {...this.state.users}
     updateUser[attribute] = event.target.value
-    this.setState({user: updateUser})
+    this.setState({users: updateUser})
   }
 
   handleSubmit = async (event) => {
     event.preventDefault()
 
     const res = await axios.post('/api/users', {
-      'user': this.state.user
+      'user': this.state.users
     })
     this.setState({redirectToUser: true, userId: res.data._id})
   }
 
   render () {
     if (this.state.redirectToUser) {
-      return <Redirect to={`/user/${this.state.userId}`} />
+      return <Redirect to={`/user/${this.state.userId}/info`} />
     }
 
     return (
@@ -39,19 +39,19 @@ class CreateUser extends Component {
             <label htmlFor="firstName">First Name</label>
             <input
               onChange={this.handleChange} name="firstName"
-              type="text" value={this.state.user.firstName}
+              type="text" value={this.state.users.firstName}
             />
           </div>
           <div>
             <label htmlFor="lastName">Last Name</label>
             <input onChange={this.handleChange}
-              value={this.state.user.lastName}
+              value={this.state.users.lastName}
               name="lastName" type="text" />
           </div>
           <div>
             <label htmlFor="email">Email</label>
             <input onChange={this.handleChange}
-              value={this.state.user.email}
+              value={this.state.users.email}
               name="Email" type="text" />
           </div>
           <button>Sign Up</button>

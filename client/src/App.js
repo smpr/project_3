@@ -10,6 +10,7 @@ import Nav from './components/BoilerPlate/Nav'
 import UserInfo from './components/Users/UserInfo'
 import NewsList from './components/News/NewsList.js'
 import CreateUser from './components/Users/CreateUser'
+import Article from './components/News/Article'
 
 
 
@@ -45,9 +46,9 @@ class App extends Component {
           <Switch>
             <Route exact path="/" render={passUser} />
             <Route exact path="/User/Create" component={CreateUser} />
-            <Route exact path="/User/:id" component={UserInfo} />
+            <Route exact path="/User/:id/info" component={UserInfo} />
             <Route exact path="/User/:id/NewsList" component={NewsList} />
-
+            <Route exact path="/Article" component={Article} />
 
           </Switch>
         </div>

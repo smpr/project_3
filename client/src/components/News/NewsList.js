@@ -1,15 +1,31 @@
 import React, { Component } from 'react'
-import { Redirect, Link } from 'react-router-dom'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
+import styled from 'styled-components'
+import User from '../Users/User'
 
-class NewsList extends Component {
-    render() {
-        return (
+
+const NewsList = (props) => {
+    const userList = props.users.map((user, index) => {
+        return <User
+            firstName={user.firstName}
+            lastName={user.lastName}
+            email={user.email}
+            key={index}
+        />
+
+    })
+    return (
+        <div>
             <div>
-                News List
+                <Link to={`/user/${props._id}/NewsList`}>{userList}</Link>
+                <Link to="/user/create">Create User</Link>
             </div>
-        );
-    }
+            <div>
+                Provider News
+        </div>
+        </div>
+    )
 }
 
 export default NewsList

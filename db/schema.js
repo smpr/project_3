@@ -29,10 +29,6 @@ const NewsSchema = mongoose.Schema({
         type: String,
         
     },
-
-
-
-
 })
 const ListSchema = mongoose.Schema({
     genre: {
