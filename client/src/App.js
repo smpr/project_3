@@ -48,7 +48,7 @@ class App extends Component {
             <Route exact path="/User/Create" component={CreateUser} />
             <Route exact path="/User/:id/info" component={UserInfo} />
             <Route exact path="/User/:id/NewsList" component={NewsList} />
-            <Route exact path="/Article" component={Article} />
+            <Route exact path="/User/:id/NewsList/:newsid/Article" component={Article} />
 
           </Switch>
         </div>

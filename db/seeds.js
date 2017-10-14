@@ -6,11 +6,11 @@ mongoose.Promise = global.Promise
 const {  News, User, NewsList } = require('./schema')
 
 const fakeNews = new News({
-    source: "Fake News",
+    sourcelink: "Fake News",
     author: "Bill Barker",
     date: "Today",
     genre: "Buisness",
-    title:"This Is filler!",
+    titlelink:"This Is filler!",
     picture: "Image Link",
     plot: "Something Something Darkside",
 })

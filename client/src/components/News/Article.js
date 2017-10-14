@@ -58,7 +58,7 @@ const Article = (props) => {
         <div>
             <HeaderBlock>
                 <SourceBlock>
-                    {props.source}
+                    {props.sourcelink}
                 </SourceBlock>
                 <AuthorBlock>
                 {props.author}
@@ -68,7 +68,7 @@ const Article = (props) => {
                 </DateBlock>
             </HeaderBlock>
             <BodyBlock>
-                {props.title}<br />
+                {props.titlelink}<br />
                 {props.plot}
             </BodyBlock>
         </div>

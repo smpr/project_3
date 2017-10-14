@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 const NewsSchema = mongoose.Schema({
-    source: {
+    sourcelink: {
         type: String,
         
     },
@@ -17,7 +17,7 @@ const NewsSchema = mongoose.Schema({
         type: String,
         
     },
-    title: {
+    titlelink: {
         type: String,
         
     },

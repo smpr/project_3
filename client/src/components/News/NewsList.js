@@ -2,15 +2,19 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-import User from '../Users/User'
+import Article from '../News/Article'
 
 
 const NewsList = (props) => {
-    const userList = props.users.map((user, index) => {
-        return <User
-            firstName={user.firstName}
-            lastName={user.lastName}
-            email={user.email}
+    const newsList = props.users.map((news, index) => {
+        return <Article
+            sourcelink={news.sourcelink}
+            article={news.article}
+            author={news.author}
+            date={news.date}
+            title={news.titlelink}
+            plot={news.plot}
+            picture={news.picture}
             key={index}
         />
 
@@ -18,12 +22,9 @@ const NewsList = (props) => {
     return (
         <div>
             <div>
-                <Link to={`/user/${props._id}/NewsList`}>{userList}</Link>
-                <Link to="/user/create">Create User</Link>
+                {newsList}
             </div>
-            <div>
-                Provider News
-        </div>
+           
         </div>
     )
 }
