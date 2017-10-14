@@ -5,11 +5,11 @@ import axios from 'axios'
 
 
 import HomePage from './components/Home/HomePage'
-import CreateUser from './components/Users/CreateHome'
 import Header from './components/BoilerPlate/Header'
 import Nav from './components/BoilerPlate/Nav'
 import UserInfo from './components/Users/UserInfo'
 import NewsList from './components/News/NewsList.js'
+import CreateUser from './components/Users/CreateUser'
 
 
 

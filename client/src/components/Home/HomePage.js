@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-
 import User from '../Users/User'
 
 const BodyWrapper = styled.div`
@@ -27,13 +26,15 @@ const HomePage = (props) => {
       firstName={user.firstName}
       lastName={user.lastName}
       email={user.email}
+      key={index}
     />
 
   })
   return (
     <BodyWrapper>
       <InfoBlock>
-        <Link key={props._id} to={`/users/${props._id}/NewsList`}>{userList}</Link>
+        <Link to={`/user/${props._id}/NewsList`}>{userList}</Link>
+        <Link to="/user/create">Create User</Link>
       </InfoBlock>
       <InfoBlock>
         Provider News
