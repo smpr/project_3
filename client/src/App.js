@@ -32,13 +32,13 @@ class App extends Component {
       return (<HomePage
         users={this.state.users}
 
-      />)
+      />)};
     const passUserToInfo = () => {
       return (<UserInfo
         users={this.state.users}
 
       />)
-    }
+    
     }
     return (
       <Router>
