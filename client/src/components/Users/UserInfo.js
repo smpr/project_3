@@ -1,16 +1,11 @@
-import React, { Component } from 'react'
-import axios from 'axios'
-import { Link } from 'react-router-dom'
-import styled from 'styled-components'
+import React from 'react';
 
-class UserInfo extends Component {
-    render() {
-        return (
-            <div>
-                User Info
-            </div>
-        );
-    }
-}
+const UserInfo = (props) => {
+    return (
+        <div>
+            <div>{props.firstName} {props.lastName}</div>
+        </div>
+    );
+};
 
 export default UserInfo;

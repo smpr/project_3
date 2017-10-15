@@ -20,27 +20,28 @@ margin: 10px auto;
 background-color: rgba(255, 243, 149, .35)
 
 `
-const HomePage = (props) => {
-  const userList = props.users.map((user, index) => {
-    return <User
-      firstName={user.firstName}
-      lastName={user.lastName}
-      email={user.email}
+const HomePage = (props, index) => {
+  const userList = () => {
+    return (<User
+      firstName={props.firstName}
+      lastName={props.lastName}
+      email={props.email}
       key={index}
-    />
+    />)
+  }
 
-  })
-  return (
-    <BodyWrapper>
-      <InfoBlock>
-        <Link to={`/user/${props._id}/NewsList`}>{userList}</Link>
-        <Link to="/user/create">Create User</Link>
+
+return (
+  <BodyWrapper>
+    <InfoBlock>
+      <Link to={`/user/${props._id}/NewsList`}>{userList}</Link>
+      <Link to="/user/create">Create User</Link>
+    </InfoBlock>
+    <InfoBlock>
+      Provider News
       </InfoBlock>
-      <InfoBlock>
-        Provider News
-      </InfoBlock>
-    </BodyWrapper>
-  )
+  </BodyWrapper>
+)
 }
 
 export default HomePage
