@@ -28,8 +28,13 @@ class App extends Component {
   }
 
   render() {
-    const passUser = () => {
+    const passUserToHome = () => {
       return (<HomePage
+        users={this.state.users}
+
+      />)
+    const passUserToInfo = () => {
+      return (<UserInfo
         users={this.state.users}
 
       />)
@@ -44,9 +49,9 @@ class App extends Component {
             <Nav />
           </div>
           <Switch>
-            <Route exact path="/" render={passUser} />
+            <Route exact path="/" render={passUserToHome} />
             <Route exact path="/User/Create" component={CreateUser} />
-            <Route exact path="/User/:id/Info" component={UserInfo} />
+            <Route exact path="/User/:id/Info" component={passUserToInfo} />
             <Route exact path="/User/:id/NewsList" component={NewsList} />
             <Route exact path="/User/:id/NewsList/:newsid/Article" component={Article} />
 
