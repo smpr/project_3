@@ -48,6 +48,8 @@ class NewsList extends Component {
     try {
       const res = await axios.get(`/api/users/${this.props.match.params.id}`)
       console.log(res.data)
+      const newsList = res.data.list
+    console.log(newsList)
       this.setState({users: res.data})
     } catch (err) {
       console.log(err)
@@ -67,10 +69,10 @@ class NewsList extends Component {
             </BodyWrapper>
             <BodyWrapper>
                 <BottomBlock>
-                   {this.state.users.list.map(list => {
+                   {this.state.users.list.map(list => {console.log(list)
           // Here we use the info for the specific instance of the loop to show username 
           // and create a link
-          return (<div><Link key={list._id} to={`/user/$${this.props.match.params.id}/newslist/${this.props.match.params.newsid}/article`}>{list.genre}</Link></div>)
+                   return (<div><Link key={list._id} to={`/user/${this.props.match.params.id}/newslist/${list._id}/articlelist`}>{list.genre}-{list.name}</Link></div>)
         })}
                 </BottomBlock>
             </BodyWrapper>

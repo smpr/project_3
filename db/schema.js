@@ -33,7 +33,9 @@ const NewsSchema = mongoose.Schema({
 const ListSchema = mongoose.Schema({
     genre: {
         type: String,
-        default: "Default"
+    },
+    name: {
+        type: String,
     },
     news: [NewsSchema]
 })

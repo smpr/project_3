@@ -16,6 +16,7 @@ const fakeNews = new News({
 })
 const newsList = new NewsList({
   genre: 'Buisness',
+  name: 'SomeNewsCompany',
   news:[fakeNews,{}]
 })
 const bob = new User({
