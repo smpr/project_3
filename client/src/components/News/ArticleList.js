@@ -5,22 +5,24 @@ import styled from 'styled-components'
 
 class ArticleList extends Component {
     state = {
-        users: {}
+        list: {}
       }
     
       componentWillMount () {
-        this.getThisArticle()
+        this.getThisArticleList()
       }
     
     
-      getThisArticle = async () => {
+      getThisArticleList = async () => {
         try {
-          const res = await axios.get(`/api/users/${this.props.match.params.id}`)
-          console.log(res.data.list)
-          const newsListTest =await axios.get("`api/user/${this.props.match.params.id}/list/${this.props.match.params.newsid}`")
-          const newsList = res.data.list.find(`api/user/${this.props.match.params.id}/newslist/${this.props.match.params.newsid}`)
-          console.log(newsListTest)
-          this.setState({users: res.data})
+         //get the data
+         const userId = this.props.match.params.id
+         const newsId = this.props.match.params.newsid
+         const res = await axios.get(`/api/users/${userId}/list/${newsId}`)
+         console.log(res.data)
+         //set state with data
+         this.setState({list: res.data})
+         //in render refrence data from state
         } catch (err) {
           console.log(err)
         }

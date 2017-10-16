@@ -1,30 +1,12 @@
 const express = require('express')
-const router = express.Router()
+const router = express.Router({ mergeParams: true })
 const { User } = require('../db/schema')
 
-router.get('/', async (req, res) => {
+router.get('/:listId', async (req, res) => {
   try {
-    const list = await User.find({})
+    const user = await User.findById(req.params.userId)
+    const list = await user.list.id(req.params.listId)
     res.json(list)
-  } catch (err) {
-    res.send(err)
-  }
-})
-
-router.get('/:id', async (req, res) => {
-  try {
-    const list = await User.findById(req.params.id)
-    res.json(user)
-  } catch (err) {
-    res.send(err)
-  }
-})
-
-router.post('/', async (req, res) => {
-  try {
-    const newUser = new User(req.body.user)
-    const saved = await newUser.save()
-    res.json(saved)
   } catch (err) {
     res.send(err)
   }
