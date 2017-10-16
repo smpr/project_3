@@ -16,12 +16,12 @@ const fakeNews = new News({
 })
 const fakeSports = new News({
   sourcelink: "Fake Sports",
-  author: "Bill Barker",
-  date: "Today",
-  genre: "Buisness",
-  titlelink:"This Is filler!",
-  picture: "Image Link",
-  plot: "Something Something Darkside",
+  author: "Bill Barker again!",
+  date: "Todays Today",
+  genre: "Sports",
+  titlelink:"This Is fillerAgain!!",
+  picture: "Image Link again",
+  plot: "Something Something Darkside part 2",
 })
 const newsList = new NewsList({
   genre: 'Buisness',
