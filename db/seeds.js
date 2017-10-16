@@ -14,16 +14,30 @@ const fakeNews = new News({
     picture: "Image Link",
     plot: "Something Something Darkside",
 })
+const fakeSports = new News({
+  sourcelink: "Fake Sports",
+  author: "Bill Barker",
+  date: "Today",
+  genre: "Buisness",
+  titlelink:"This Is filler!",
+  picture: "Image Link",
+  plot: "Something Something Darkside",
+})
 const newsList = new NewsList({
   genre: 'Buisness',
   name: 'SomeNewsCompany',
+  news:[fakeNews, fakeSports]
+})
+const newsListAgain = new NewsList({
+  genre: 'Sports',
+  name: 'SomeSportsCompany',
   news:[fakeNews,{}]
 })
 const bob = new User({
   firstName: 'Bob',
   lastName: "Barker",
   email: 'priceisnotright.com',
-  list: [newsList, {}]
+  list: [newsList, newsListAgain]
 })
 
 User.remove({})

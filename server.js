@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const app = express();
 const UsersController = require('./routes/UsersController')
 const ListController = require('./routes/ListController')
+const ArticleController = require('./routes/ArticleController')
 mongoose.Promise = global.Promise;
 mongoose.connect(process.env.MONGODB_URI);
 
@@ -21,6 +22,7 @@ app.use(express.static(__dirname + '/client/build/'));
 app.use(bodyParser.json());
 app.use('/api/users', UsersController)
 app.use('/api/users/:userId/list', ListController)
+app.use('/api/users/:userId/list/:listId/article', ArticleController)
 app.get('/', (req,res) => {
     res.sendFile(__dirname + '/client/build/index.html')
   })
