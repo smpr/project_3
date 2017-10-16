@@ -10,6 +10,7 @@ import UserInfo from './components/Users/UserInfo'
 import NewsList from './components/News/NewsList.js'
 import CreateUser from './components/Users/CreateUser'
 import Article from './components/News/Article'
+import ArticleList from './components/News/Article'
 
 class App extends Component {
   render () {
@@ -27,7 +28,8 @@ class App extends Component {
                   <Route exact path="/User/Create" component={CreateUser} />
                   <Route exact path="/User/:id/Info" component={UserInfo} />
                   <Route exact path="/User/:id/NewsList" component={NewsList} />
-                  <Route exact path="/User/:id/NewsList/:newsid/Article" component={Article} />
+                  <Route exact path="/User/:id/NewsList/:newsid/ArticleList" component={ArticleList} />
+                  <Route exact path="/User/:id/NewsList/:newsid/ArticleList/:articleid" component={Article} />
       
                 </Switch>
               </div>
