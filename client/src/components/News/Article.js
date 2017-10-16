@@ -53,26 +53,51 @@ margin: 10px auto;
 background-color: rgba(255, 243, 149, .35)
 
 `
-const Article = (props) => {
+class Article extends Component {
+    // This sets the initial state for the component. 
+    state = {
+      users: {
+        list:{
+            news:{}
+        }
+      }
+    }
+
+  componentWillMount () {
+    this.getAllArticles()
+  }
+
+
+  getAllArticles = async () => {
+    try {
+      const res = await axios.get(`/api/users/${this.props.match.params.id}`)
+      console.log(res.data)
+      this.setState({users: res.data})
+    } catch (err) {
+      console.log(err)
+    }
+  }
+    render(){
     return (
         <div>
             <HeaderBlock>
                 <SourceBlock>
-                    {props.sourcelink}
+                
+                   
                 </SourceBlock>
+                {/* {this.state.users.list.article.author} */}
                 <AuthorBlock>
-                {props.author}
                 </AuthorBlock>
                 <DateBlock>
-                {props.date}
+               
                 </DateBlock>
             </HeaderBlock>
             <BodyBlock>
-                {props.titlelink}<br />
-                {props.plot}
+                <br />
+               
             </BodyBlock>
         </div>
     );
 };
-
+}
 export default Article;

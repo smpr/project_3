@@ -70,7 +70,7 @@ class NewsList extends Component {
                    {this.state.users.list.map(list => {
           // Here we use the info for the specific instance of the loop to show username 
           // and create a link
-          return (<div><Link key={list._id} to={`/user/$${this.props.match.params.id}/newslist/${this.props.match.params.id}`}>{list.genre}</Link></div>)
+          return (<div><Link key={list._id} to={`/user/$${this.props.match.params.id}/newslist/${this.props.match.params.id}/article`}>{list.genre}</Link></div>)
         })}
                 </BottomBlock>
             </BodyWrapper>
