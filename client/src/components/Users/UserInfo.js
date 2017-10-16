@@ -4,6 +4,7 @@ const UserInfo = (props) => {
     return (
         <div>
             <div>{props.firstName} {props.lastName}</div>
+            <div>Test</div>
         </div>
     );
 };

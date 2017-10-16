@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
 import styled from 'styled-components'
 import axios from 'axios'
 
-
 import HomePage from './components/Home/HomePage'
 import Header from './components/BoilerPlate/Header'
 import Nav from './components/BoilerPlate/Nav'
@@ -12,54 +11,27 @@ import NewsList from './components/News/NewsList.js'
 import CreateUser from './components/Users/CreateUser'
 import Article from './components/News/Article'
 
-
-
 class App extends Component {
-  state = {
-    users: []
-  }
-  componentWillMount() {
-    this.getAllUsers()
-  }
-  getAllUsers = () => {
-    axios.get('/api/users').then(res => {
-      this.setState({ users: res.data })
-    })
-  }
-
-  render() {
-    const passUserToHome = () => {
-      return (<HomePage
-        users={this.state.users}
-
-      />)};
-    const passUserToInfo = () => {
-      return (<UserInfo
-        users={this.state.users}
-
-      />)
-    
-    }
+  render () {
     return (
-      <Router>
-        <div>
-          <div>
-            <Header />
-          </div>
-          <div>
-            <Nav />
-          </div>
-          <Switch>
-            <Route exact path="/" render={passUserToHome} />
-            <Route exact path="/User/Create" component={CreateUser} />
-            <Route exact path="/User/:id/Info" component={passUserToInfo} />
-            <Route exact path="/User/:id/NewsList" component={NewsList} />
-            <Route exact path="/User/:id/NewsList/:newsid/Article" component={Article} />
-
-          </Switch>
-        </div>
-      </Router>
-    )
+            <Router>
+              <div>
+                <div>
+                  <Header />
+                </div>
+                <div>
+                  <Nav />
+                </div>
+                <Switch>
+                  <Route exact path="/" component={HomePage} />
+                  <Route exact path="/User/Create" component={CreateUser} />
+                  <Route exact path="/User/:id/Info" component={UserInfo} />
+                  <Route exact path="/User/:id/NewsList" component={NewsList} />
+                  <Route exact path="/User/:id/NewsList/:newsid/Article" component={Article} />
+      
+                </Switch>
+              </div>
+            </Router>)
   }
 }
 

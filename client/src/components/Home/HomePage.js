@@ -1,47 +1,41 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
-import styled from 'styled-components'
-import User from '../Users/User'
+import CreateUser from '../Users/CreateUser'
 
-const BodyWrapper = styled.div`
-display: flex;
-justify-content: flex-start;
-flex-direction: row-wrap;
+class HomePage extends Component {
+  // This sets the initial state for the component. 
+  state = {
+    users: []
+  }
 
-
-`
-const InfoBlock = styled.div`
-border: 2px rgba(138, 134, 132, .5);
-border-radius: 2px;
-width: 275px;
-height: 275px;
-margin: 10px auto;
-background-color: rgba(255, 243, 149, .35)
-
-`
-const HomePage = (props, index) => {
-  const userList = () => {
-    return (<User
-      firstName={props.firstName}
-      lastName={props.lastName}
-      email={props.email}
-      key={index}
-    />)
+ 
+  componentWillMount () {
+    this.getAllUsers()
   }
 
 
-return (
-  <BodyWrapper>
-    <InfoBlock>
-      <Link to={`/user/${props._id}/NewsList`}>{userList}</Link>
-      <Link to="/user/create">Create User</Link>
-    </InfoBlock>
-    <InfoBlock>
-      Provider News
-      </InfoBlock>
-  </BodyWrapper>
-)
+  getAllUsers = async () => {
+    try {
+      const res = await axios.get('/api/users')
+      this.setState({users: res.data})
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
+  render () {
+    return (
+      <div>
+        <h1></h1>
+        <h3></h3>
+        {this.state.users.map(user => {
+          return (<div><Link key={user._id} to={`/user/${user._id}/info`}>{user.firstName} {user.lastName}</Link></div>)
+        })}
+        <Link to={'/user/create'}>Create</Link>
+      </div>
+    )
+  }
 }
 
 export default HomePage

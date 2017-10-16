@@ -28,7 +28,7 @@ class CreateUser extends Component {
 
   render () {
     if (this.state.redirectToUser) {
-      return <Redirect to={`/user/${this.state.userId}/info`} />
+      return <Redirect to={`/user/${this.state.userId}/newslist`} />
     }
 
     return (
