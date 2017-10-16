@@ -29,35 +29,50 @@ margin: 10px auto;
 background-color: rgba(255, 243, 149, .35)
 
 `
-const NewsList = (props) => {
-    // const newsList = props.users.map((news, index) => {
-    //     return <Article
-    //         sourcelink={news.sourcelink}
-    //         article={news.article}
-    //         author={news.author}
-    //         date={news.date}
-    //         title={news.titlelink}
-    //         plot={news.plot}
-    //         picture={news.picture}
-    //         key={index}
-    //     />
 
-    // })
+
+class NewsList extends Component {
+  // This sets the initial state for the component. 
+  state = {
+    users: {
+        firstName:'',
+        list:[]
+    }
+  }
+
+  componentWillMount () {
+    this.getAllNews()
+  }
+
+
+  getAllNews = async () => {
+    try {
+      const res = await axios.get(`/api/users/${this.props.match.params.id}`)
+      console.log(res.data)
+      this.setState({users: res.data})
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
+
+    render() {
+
     return (
         <div>
             <BodyWrapper>
                 <TopBlock>
-                    <Link to={`/user/${props._id}/Info`}>User info</Link>
+                    <Link to={`/user/${this.props.match.params.id}/Info`}>User info</Link>
                     {/* {newsList} */}
                 </TopBlock>
             </BodyWrapper>
             <BodyWrapper>
                 <BottomBlock>
-                    Body
+                    {this.state.users.firstName}
                 </BottomBlock>
             </BodyWrapper>
         </div>
     )
 }
-
+}
 export default NewsList
