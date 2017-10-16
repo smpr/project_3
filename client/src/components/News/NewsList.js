@@ -35,7 +35,6 @@ class NewsList extends Component {
   // This sets the initial state for the component. 
   state = {
     users: {
-        firstName:'',
         list:[]
     }
   }
@@ -68,7 +67,11 @@ class NewsList extends Component {
             </BodyWrapper>
             <BodyWrapper>
                 <BottomBlock>
-                    {this.state.users.firstName}
+                   {this.state.users.list.map(list => {
+          // Here we use the info for the specific instance of the loop to show username 
+          // and create a link
+          return (<div><Link key={list._id} to={`/Users/${list._id}`}>{list.genre}</Link></div>)
+        })}
                 </BottomBlock>
             </BodyWrapper>
         </div>

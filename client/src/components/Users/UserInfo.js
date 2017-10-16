@@ -4,10 +4,7 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 class UserInfo extends Component {
     state = {
-        users: {
-            firstName:'',
-            list:[]
-        }
+        users: {}
       }
     
       componentWillMount () {
