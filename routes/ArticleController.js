@@ -6,7 +6,7 @@ router.get('/:articleId', async (req, res) => {
   try {
     const user = await User.findById(req.params.userId)
     console.log('test 1')
-    const list = await user.list.id(req.params.listId)
+    const list = await user.list.findById(req.params.listId)
     console.log("test 2")
     const article =await list.news.id(req.params.articleId)
     console.log('test 3')

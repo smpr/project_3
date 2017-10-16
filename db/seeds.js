@@ -31,7 +31,7 @@ const newsList = new NewsList({
 const newsListAgain = new NewsList({
   genre: 'Sports',
   name: 'SomeSportsCompany',
-  news:[fakeNews,{}]
+  news:[fakeNews]
 })
 const bob = new User({
   firstName: 'Bob',

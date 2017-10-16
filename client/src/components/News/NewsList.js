@@ -47,9 +47,7 @@ class NewsList extends Component {
   getAllNews = async () => {
     try {
       const res = await axios.get(`/api/users/${this.props.match.params.id}`)
-      console.log(res.data)
       const newsList = res.data.list
-    console.log(newsList)
       this.setState({users: res.data})
     } catch (err) {
       console.log(err)

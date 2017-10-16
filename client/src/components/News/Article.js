@@ -56,11 +56,7 @@ background-color: rgba(255, 243, 149, .35)
 class Article extends Component {
     // This sets the initial state for the component. 
     state = {
-      users: {
-        list:{
-            news:{}
-        }
-      }
+     news:{}
     }
 
   componentWillMount () {
@@ -70,7 +66,11 @@ class Article extends Component {
 
   getAllArticles = async () => {
     try {
-      const res = await axios.get(`/api/users/${this.props.match.params.id}`)
+      const userId = this.props.match.params.id
+      const newsId = this.props.match.params.newsid
+      const articleId = this.props.match.params.articleId
+      console.log(articleId)
+      const res = await axios.get(`/api/users/${userId}/list/${newsId}`)
       console.log(res.data)
       this.setState({users: res.data})
     } catch (err) {
