@@ -20,9 +20,9 @@ class ArticleList extends Component {
          //get the data
          const userId = this.props.match.params.id
          const newsId = this.props.match.params.newsid
-         
+         const articleId = this.props.match.params.articleId
+         console.log(articleId)
          //this grabs all of the articles in this list
-         console.log('test')
          const res = await axios.get(`/api/users/${userId}/list/${newsId}`)
   
          //set state with data
@@ -39,8 +39,8 @@ class ArticleList extends Component {
                     const userId = this.props.match.params.id
                     const newsId = this.props.match.params.newsid
                     const articleId= this.props.match.params.articleId
-                    console.log(articleId)
-          return (<div><Link  key={article._id} to={`/user/${userId}/newslist/${newsId}/articlelist/${articleId}/article`}>{article.titlelink} </Link></div>)
+                    console.log(article)
+          return (<div><Link  key={article._id} to={`/user/${userId}/newslist/${newsId}/articlelist/${article._id}/article`}>{article.titlelink} </Link></div>)
         })}
            </div>
         );

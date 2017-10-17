@@ -5,7 +5,6 @@ const { User } = require('../db/schema')
 router.get('/:listId', async (req, res) => {
   try {
     const user = await User.findById(req.params.userId)
-    console.log('test 0')
     const list = await user.list.id(req.params.listId)
     res.json(list)
   } catch (err) {

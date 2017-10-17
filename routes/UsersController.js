@@ -19,6 +19,12 @@ router.get('/:id', async (req, res) => {
     res.send(err)
   }
 })
+router.delete('/:id', async (req, res) => {
+  const user = await User.findById(req.params.id)
+  user.remove()
+  const saved = await user.save()
+  res.json(saved)
+})
 
 router.post('/', async (req, res) => {
   try {

@@ -46,7 +46,8 @@ class NewsList extends Component {
 
     getAllNews = async () => {
         try {
-            const res = await axios.get(`/api/users/${this.props.match.params.id}`)
+            const userId = this.props.match.params.id
+            const res = await axios.get(`/api/users/${userId}`)
             const newsList = res.data.list
             this.setState({ users: res.data })
         } catch (err) {
@@ -68,8 +69,7 @@ class NewsList extends Component {
                     <BottomBlock>
                         {this.state.users.list.map(list => {
                             console.log(list)
-                            // Here we use the info for the specific instance of the loop to show username 
-                            // and create a link
+                           
                             return (<div><Link key={list._id} to={`/user/${this.props.match.params.id}/newslist/${list._id}/articlelist`}>{list.genre}- {list.name}</Link></div>)
                         })}
                     </BottomBlock>
