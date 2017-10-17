@@ -19,6 +19,15 @@ router.get('/:id', async (req, res) => {
     res.send(err)
   }
 })
+router.patch('/:id', async (req,res)=>{
+  const updatedUser = req.body.user
+  const user = await User.findById(req.params.id)
+  user.firstName = updatedUser.firstName
+  user.lastName = updatedUser.lastName
+  user.email = updatedUser.email
+  const saved = await user.save()
+  res.json(saved)
+})
 router.delete('/:id', async (req, res) => {
   const user = await User.findById(req.params.id)
   user.remove()

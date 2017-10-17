@@ -5,7 +5,11 @@ import styled from 'styled-components'
 import { Redirect } from 'react-router-dom'
 class UserInfo extends Component {
   state = {
-    user: {},
+    user: {
+      firstName: '',
+      lastName: '',
+      email: '',
+    },
     redirectToHome: false
   }
 
@@ -17,7 +21,6 @@ class UserInfo extends Component {
   getThisUser = async () => {
     try {
       const res = await axios.get(`/api/users/${this.props.match.params.id}`)
-      console.log(res.data)
       this.setState({ user: res.data })
     } catch (err) {
       console.log(err)
@@ -30,48 +33,50 @@ class UserInfo extends Component {
     console.log(userid)
     // delete the id from the api
     const res = await axios.delete(`/api/users/${userid}`)
- 
+
     //redirect back to the user page after the id has been deleted
-    this.setState({redirectToHome :true})
+    this.setState({ redirectToHome: true })
   }
-  // updateUser = async (userId) => {
-  //   const { userId } = this.props.match.params
-  //   const clonedUser = { ...this.state.user }
-  //   //const idea = clonedUser.ideas.find(i => i._id === ideaId)
-  //   const res = await axios.patch(`/api/users/${this.props.match.params.id}`, {
-  //    // idea: idea
-  //   })
-  //   this.setState({ users: res.data })
-  // }
+  handleChange = (event) => {
+    //grab whats being changed
+    const attribute = event.target.name
+    //see whats the new state of being changed
+
+    //set the new user as the old state
+    const clonedUser = { ...this.state.user }
+    //set attribute )
+    //set the old state as the new state
+    clonedUser[attribute] = event.target.value
+    this.setState({ user: clonedUser })
+  }
+  editUser = async () => {
+
+    const userid = this.props.match.params.id
+    const res = await axios.patch(`/api/users/${userid}`, {
+      user: this.state.user
+      
+    })
+    this.setState({ user: res.data })
+    {/* <input onBlur={editUser} onChange={handleChange} name="firstName" value={props.title} /> */ }
+  }
   render() {
-    if(this.state.redirectToHome) { console.log("redirected")
+    if (this.state.redirectToHome) {
+      console.log("redirected")
       return <Redirect to={`/users`} />
     }
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
-          <div>
-            <label htmlFor="firstName">First Name</label>
-            <input
-              onChange={this.handleChange} name="firstName"
-              type="text" value={this.state.user.firstName}
-            />
-          </div>
-          <div>
-            <label htmlFor="lastName">Last Name</label>
-            <input onChange={this.handleChange}
-              value={this.state.user.lastName}
-              name="lastName" type="text" />
-          </div>
-          <div>
-            <label htmlFor="email">Email</label>
-            <input onChange={this.handleChange}
-              value={this.state.user.email}
-              name="Email" type="text" />
-          </div>
-          <button>Edit</button>
-        </form>
+        <div>
+          First Name: <input onChange={this.handleChange} name="firstName" value={this.state.user.firstName} />
+        </div>
+        <div>
+          Last Name: <input onChange={this.handleChange} name="lastName" value={this.state.user.lastName} />
+        </div>
+        <div>
+          Email:<input onChange={this.handleChange} name="email" value={this.state.user.email} />
+        </div>
         <button onClick={this.deleteUser}>Delete User</button>
+        <button onClick={this.editUser}>Edit</button>
       </div>
     );
   }
