@@ -57,7 +57,13 @@ background-color: rgba(255, 243, 149, .35)
 class Article extends Component {
     // This sets the initial state for the component. 
     state = {
-     news:{}
+     news:{
+       sourcelink: '',
+       author: '',
+       date: '',
+       titlelink: '',
+       plot:'',
+     }
     }
 
   componentWillMount () {

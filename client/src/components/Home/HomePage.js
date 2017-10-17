@@ -6,7 +6,10 @@ import CreateUser from '../Users/CreateUser'
 class HomePage extends Component {
   // This sets the initial state for the component. 
   state = {
-    users: []
+    users: [{
+      firstName: '',
+      lastName: ''
+    }]
   }
 
  

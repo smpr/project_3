@@ -35,7 +35,10 @@ class NewsList extends Component {
     // This sets the initial state for the component. 
     state = {
         users: {
-            list: []
+            list: [{
+                genre:'',
+                name: '',
+            }]
         }
     }
     
