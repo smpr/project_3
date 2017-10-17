@@ -13,7 +13,7 @@ border: 0;
 border-radius: 0px;
 width: 275px;
 height: 20px;
-margin: 10px auto;
+margin: 0px auto;
 background-color: darkblue;
 text-align:center;
 color: white;

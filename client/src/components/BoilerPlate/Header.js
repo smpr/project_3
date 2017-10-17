@@ -16,9 +16,9 @@ flex-direction: row;
 const HeaderBlock = styled.div`
 border: 0;
 border-radius: 0px;
-width: 275px;
+width: 100%;
 height: 100px;
-margin: 10px auto;
+margin: 0px auto;
 background-color: darkblue;
 text-align:center;
 color: white;
@@ -30,7 +30,7 @@ const UnderHeaderBlock = styled.div`
 border: 0;
 border-radius: 0px;
 height: 50px;
-margin: 10px auto;
+margin: 0px auto;
 background-color: darkblue;
 text-align:center;
 color: white;

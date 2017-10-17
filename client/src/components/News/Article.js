@@ -22,7 +22,7 @@ border: 2px rgba(138, 134, 132, .5);
 border-radius: 2px;
 width: 275px;
 height: 275px;
-margin: 10px auto;
+margin: 0px;
 background-color: rgba(255, 243, 149, .35)
 
 `
@@ -31,7 +31,7 @@ border: 2px rgba(138, 134, 132, .5);
 border-radius: 2px;
 width: 275px;
 height: 275px;
-margin: 10px auto;
+margin: 0px;
 background-color: rgba(255, 243, 149, .35)
 
 `
@@ -40,7 +40,7 @@ border: 2px rgba(138, 134, 132, .5);
 border-radius: 2px;
 width: 275px;
 height: 275px;
-margin: 10px auto;
+margin: 0px;
 background-color: rgba(255, 243, 149, .35)
 
 `
@@ -49,7 +49,7 @@ border: 2px rgba(138, 134, 132, .5);
 border-radius: 2px;
 width: 275px;
 height: 275px;
-margin: 10px auto;
+margin: 0px;
 background-color: rgba(255, 243, 149, .35)
 
 `
