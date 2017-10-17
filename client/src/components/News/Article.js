@@ -70,9 +70,9 @@ class Article extends Component {
       const newsId = this.props.match.params.newsid
       const articleId = this.props.match.params.articleId
       console.log(articleId)
-      const res = await axios.get(`/api/users/${userId}/list/${newsId}`)
+      const res = await axios.get(`/api/users/${userId}/list/${newsId}/article/${articleId}`)
       console.log(res.data)
-      this.setState({users: res.data})
+      this.setState({news: res.data})
     } catch (err) {
       console.log(err)
     }
@@ -82,19 +82,19 @@ class Article extends Component {
         <div>
             <HeaderBlock>
                 <SourceBlock>
-                
-                   
+                {this.state.news.sourcelink}
                 </SourceBlock>
-                {/* {this.state.users.list.article.author} */}
+               
                 <AuthorBlock>
+                {this.state.news.author}
                 </AuthorBlock>
                 <DateBlock>
-               
+                {this.state.news.date}
                 </DateBlock>
             </HeaderBlock>
             <BodyBlock>
-                <br />
-               
+               {this.state.news.titlelink} <br />
+               {this.state.news.plot}
             </BodyBlock>
         </div>
     );
