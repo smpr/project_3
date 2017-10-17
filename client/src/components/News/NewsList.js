@@ -32,50 +32,50 @@ background-color: rgba(255, 243, 149, .35)
 
 
 class NewsList extends Component {
-  // This sets the initial state for the component. 
-  state = {
-    users: {
-        list:[]
+    // This sets the initial state for the component. 
+    state = {
+        users: {
+            list: []
+        }
     }
-  }
-
-  componentWillMount () {
-    this.getAllNews()
-  }
-
-
-  getAllNews = async () => {
-    try {
-      const res = await axios.get(`/api/users/${this.props.match.params.id}`)
-      const newsList = res.data.list
-      this.setState({users: res.data})
-    } catch (err) {
-      console.log(err)
+    
+    componentWillMount() {
+        this.getAllNews()
     }
-  }
+
+
+    getAllNews = async () => {
+        try {
+            const res = await axios.get(`/api/users/${this.props.match.params.id}`)
+            const newsList = res.data.list
+            this.setState({ users: res.data })
+        } catch (err) {
+            console.log(err)
+        }
+    }
 
 
     render() {
+        return (
+            <div>
+                <BodyWrapper>
+                    <TopBlock>
+                        <Link to={`/user/${this.props.match.params.id}/Info`}>User info</Link>
 
-    return (
-        <div>
-            <BodyWrapper>
-                <TopBlock>
-                    <Link to={`/user/${this.props.match.params.id}/Info`}>User info</Link>
-                    {/* {newsList} */}
-                </TopBlock>
-            </BodyWrapper>
-            <BodyWrapper>
-                <BottomBlock>
-                   {this.state.users.list.map(list => {console.log(list)
-          // Here we use the info for the specific instance of the loop to show username 
-          // and create a link
-          return (<div><Link key={list._id} to={`/user/${this.props.match.params.id}/newslist/${list._id}/articlelist`}>{list.genre}- {list.name}</Link></div>)
-        })}
-                </BottomBlock>
-            </BodyWrapper>
-        </div>
-    )
-}
+                    </TopBlock>
+                </BodyWrapper>
+                <BodyWrapper>
+                    <BottomBlock>
+                        {this.state.users.list.map(list => {
+                            console.log(list)
+                            // Here we use the info for the specific instance of the loop to show username 
+                            // and create a link
+                            return (<div><Link key={list._id} to={`/user/${this.props.match.params.id}/newslist/${list._id}/articlelist`}>{list.genre}- {list.name}</Link></div>)
+                        })}
+                    </BottomBlock>
+                </BodyWrapper>
+            </div>
+        )
+    }
 }
 export default NewsList

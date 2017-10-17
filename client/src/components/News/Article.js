@@ -20,16 +20,17 @@ flex-direction: row-wrap;
 const SourceBlock = styled.div`
 border: 2px rgba(138, 134, 132, .5);
 border-radius: 2px;
-width: 275px;
+width: 34%;
 height: 275px;
 margin: 0px;
+align-content:center;
 background-color: rgba(255, 243, 149, .35)
 
 `
 const AuthorBlock = styled.div`
 border: 2px rgba(138, 134, 132, .5);
 border-radius: 2px;
-width: 275px;
+width: 33%;
 height: 275px;
 margin: 0px;
 background-color: rgba(255, 243, 149, .35)
@@ -38,7 +39,7 @@ background-color: rgba(255, 243, 149, .35)
 const DateBlock = styled.div`
 border: 2px rgba(138, 134, 132, .5);
 border-radius: 2px;
-width: 275px;
+width: 33%;
 height: 275px;
 margin: 0px;
 background-color: rgba(255, 243, 149, .35)
@@ -47,7 +48,7 @@ background-color: rgba(255, 243, 149, .35)
 const BodyBlock = styled.div`
 border: 2px rgba(138, 134, 132, .5);
 border-radius: 2px;
-width: 275px;
+width: 100%;
 height: 275px;
 margin: 0px;
 background-color: rgba(255, 243, 149, .35)
