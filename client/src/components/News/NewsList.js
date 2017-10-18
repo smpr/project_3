@@ -9,56 +9,38 @@ const BodyWrapper = styled.div`
 display: flex;
 justify-content: flex-start;
 flex-direction: row-wrap;
-
-
+background-color: rgba(204, 204, 204, .35)
 `
-const TopBlock = styled.div`
-border: 2px rgba(138, 134, 132, .5);
-border-radius: 2px;
-width: 275px;
+const NewsBlock = styled.div`
+border: 2px rgba(138, 134, 132, .75);
+box-shadow: 10px 10px 5px #888888;
+border-radius: 10px;
+width: 400px;
 height: 275px;
-margin: 10px auto;
-background-color: rgba(255, 243, 149, .35)
-
-`
-const BottomBlock = styled.div`
-border: 2px rgba(138, 134, 132, .5);
-border-radius: 2px;
-width: 275px;
-height: 275px;
-margin: 10px auto;
-background-color: rgba(255, 243, 149, .35)
-
+margin: 100px auto;
+padding: 10px;
+background-color: rgba(58, 69, 215, .45);
+text-align: center;
 `
 const ImageBlock = styled.div`
-
 img{
     max-width: 75px
-}
-width: 50px;
-height: auto;
+    }
 margin: 0px;
-
-
 `
-
-
 class NewsList extends Component {
     // This sets the initial state for the component. 
     state = {
         users: {
             list: [{
-                genre:'',
+                genre: '',
                 name: '',
             }]
         }
     }
-    
     componentWillMount() {
         this.getAllNews()
     }
-
-
     getAllNews = async () => {
         try {
             const userId = this.props.match.params.id
@@ -69,28 +51,19 @@ class NewsList extends Component {
             console.log(err)
         }
     }
-
-
     render() {
         return (
             <BodyWrapper>
-                <BodyWrapper>
-                    <TopBlock>
-                        <Link to={`/user/${this.props.match.params.id}/Info`}> {this.state.users.firstName} {this.state.users.lastName}</Link>
-
-                    </TopBlock>
-                </BodyWrapper>
-                <BodyWrapper>
-                    <BottomBlock>
-                        
+                <Link to={`/user/${this.props.match.params.id}/Info`}> {this.state.users.firstName} {this.state.users.lastName}</Link>
+                <NewsBlock>
+                Sources: <br />
+                    <ImageBlock>
                         {this.state.users.list.map(list => {
                             console.log(list)
-                           
-                            return (<ImageBlock><Link key={list._id} to={`/user/${this.props.match.params.id}/newslist/${list._id}/articlelist`}><img src={list.imageSource} /></Link></ImageBlock>)
-                        })}
-                        
-                    </BottomBlock>
-                </BodyWrapper>
+                            return (<Link key={list._id} to={`/user/${this.props.match.params.id}/newslist/${list._id}/articlelist`}><img src={list.imageSource} /></Link>)
+                        })}<br />
+                    </ImageBlock>
+                </NewsBlock>
             </BodyWrapper>
         )
     }

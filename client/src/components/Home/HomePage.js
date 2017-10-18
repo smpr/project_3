@@ -11,12 +11,15 @@ flex-direction: row-wrap;
 
 `
 const UserList = styled.div`
-border: 2px rgba(138, 134, 132, .5);
-border-radius: 2px;
-width: 275px;
+border: 2px rgba(138, 134, 132, .75);
+box-shadow: 10px 10px 5px #888888;
+border-radius: 10px;
+width: 400px;
 height: 275px;
-margin: 10px auto;
-background-color: rgba(255, 243, 149, .35)
+margin: 100px auto;
+padding: 10px;
+background-color: rgba(58, 69, 215, .45);
+text-align: center;
 `
 class HomePage extends Component {
   // This sets the initial state for the component. 

@@ -7,43 +7,35 @@ const BodyWrapper = styled.div`
 display: flex;
 justify-content: flex-start;
 flex-direction: row-wrap;
-
-
+border: 2px rgba(138, 134, 132, .75);
+box-shadow: 10px 10px 5px #888888;
+border-radius: 10px;
+width: 400px;
+height: 275px;
+margin: 100px auto;
+padding: 10px;
+background-color: rgba(58, 69, 215, .45);
+text-align: center;
 `
 const HeaderBlock = styled.div`
 display: flex;
 justify-content: flex-start;
 flex-direction: row-wrap;
-
-
+border: 2px rgba(138, 134, 132, .75);
+width: 100%;
+height: 25px;
+margin-top: 10px;
+padding: 10px;
+background-color: rgba(58, 69, 215, .45);
+text-align: center;
 `
-const SourceBlock = styled.div`
+const InfoBlock = styled.div`
 border: 2px rgba(138, 134, 132, .5);
 border-radius: 2px;
 width: 34%;
 height: 275px;
 margin: 0px;
 align-content:center;
-background-color: rgba(255, 243, 149, .35)
-
-`
-const AuthorBlock = styled.div`
-border: 2px rgba(138, 134, 132, .5);
-border-radius: 2px;
-width: 33%;
-height: 275px;
-margin: 0px;
-background-color: rgba(255, 243, 149, .35)
-
-`
-const DateBlock = styled.div`
-border: 2px rgba(138, 134, 132, .5);
-border-radius: 2px;
-width: 33%;
-height: 275px;
-margin: 0px;
-background-color: rgba(255, 243, 149, .35)
-
 `
 const BodyBlock = styled.div`
 border: 2px rgba(138, 134, 132, .5);
@@ -51,7 +43,10 @@ border-radius: 2px;
 width: 100%;
 height: 275px;
 margin: 0px;
-background-color: rgba(255, 243, 149, .35)
+background-color: rgba(58, 69, 215, .45);
+text-align:center;
+padding: 25px;
+
 
 `
 class Article extends Component {
@@ -88,19 +83,19 @@ class Article extends Component {
     return (
         <div>
             <HeaderBlock>
-                <SourceBlock>
-                {this.state.news.sourcelink}
-                </SourceBlock>
+                <InfoBlock>
+                <b>Source:</b> {this.state.news.sourcelink}
+                </InfoBlock>
                
-                <AuthorBlock>
-                {this.state.news.author}
-                </AuthorBlock>
-                <DateBlock>
-                {this.state.news.date}
-                </DateBlock>
+                <InfoBlock>
+                <b>Author:</b>{this.state.news.author}
+                </InfoBlock>
+                <InfoBlock>
+                <b>Date:</b>{this.state.news.date}
+                </InfoBlock>
             </HeaderBlock>
             <BodyBlock>
-               {this.state.news.titlelink} <br />
+               <b>Title:</b>{this.state.news.titlelink} <br />
                {this.state.news.plot}
             </BodyBlock>
         </div>
