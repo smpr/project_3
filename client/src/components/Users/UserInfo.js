@@ -1,8 +1,24 @@
 import React, { Component } from 'react';
 import axios from 'axios'
-import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-import { Redirect } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
+const BodyWrapper = styled.div`
+display: flex;
+justify-content: flex-start;
+flex-direction: row-wrap;
+background-color: rgba(204, 204, 204, .35)
+`
+const UserBlock = styled.div`
+border: 2px rgba(138, 134, 132, .75);
+box-shadow: 10px 10px 5px #888888;
+border-radius: 10px;
+width: 400px;
+height: 275px;
+margin: 100px auto;
+padding: 10px;
+background-color: rgba(58, 69, 215, .45);
+text-align: center;
+`
 class UserInfo extends Component {
   state = {
     user: {
@@ -33,7 +49,6 @@ class UserInfo extends Component {
     console.log(userid)
     // delete the id from the api
     const res = await axios.delete(`/api/users/${userid}`)
-
     //redirect back to the user page after the id has been deleted
     this.setState({ redirectToHome: true })
   }
@@ -53,10 +68,11 @@ class UserInfo extends Component {
 
     const userid = this.props.match.params.id
     const res = await axios.patch(`/api/users/${userid}`, {
-      user: this.state.user
-      
+      user: this.state.user,
+    
+
     })
-    this.setState({ user: res.data })
+    this.setState({ user: res.data, redirectToHome: true })
     {/* <input onBlur={editUser} onChange={handleChange} name="firstName" value={props.title} /> */ }
   }
   render() {
@@ -65,10 +81,14 @@ class UserInfo extends Component {
       return <Redirect to={`/users`} />
     }
     return (
-      <div>
-        <div>
+      
+      <BodyWrapper>
+        <UserBlock>
+          <br/>
+          <h2><b>Edit User</b></h2>
+          <br/>
           First Name: <input onChange={this.handleChange} name="firstName" value={this.state.user.firstName} />
-        </div>
+        
         <div>
           Last Name: <input onChange={this.handleChange} name="lastName" value={this.state.user.lastName} />
         </div>
@@ -77,7 +97,8 @@ class UserInfo extends Component {
         </div>
         <button onClick={this.deleteUser}>Delete User</button>
         <button onClick={this.editUser}>Edit</button>
-      </div>
+        </UserBlock>
+      </BodyWrapper>
     );
   }
 }

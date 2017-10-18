@@ -50,7 +50,7 @@ class HomePage extends Component {
       <BodyWrapper>
         <h1></h1>
         <h3><Link to={'/user/create'}>Create</Link></h3>
-        <UserList>User List: <br/>{this.state.users.map(user => {
+        <UserList><b>User List:</b> <br/>{this.state.users.map(user => {
           return (<Link key={user._id} to={`/user/${user._id}/newslist`}>{user.firstName} {user.lastName}<br /></Link>)
         })}
         </UserList>
