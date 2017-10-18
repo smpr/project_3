@@ -32,7 +32,9 @@ background-color: rgba(255, 243, 149, .35)
 `
 const ImageBlock = styled.div`
 
-
+img{
+    max-width: 75px
+}
 width: 50px;
 height: auto;
 margin: 0px;
@@ -84,7 +86,7 @@ class NewsList extends Component {
                         {this.state.users.list.map(list => {
                             console.log(list)
                            
-                            return (<div><Link key={list._id} to={`/user/${this.props.match.params.id}/newslist/${list._id}/articlelist`}>{list.genre} - {list.name}<ImageBlock><img src={list.imageSource} /></ImageBlock></Link></div>)
+                            return (<Link key={list._id} to={`/user/${this.props.match.params.id}/newslist/${list._id}/articlelist`}><ImageBlock><img src={list.imageSource} /></ImageBlock></Link>)
                         })}
                         
                     </BottomBlock>
