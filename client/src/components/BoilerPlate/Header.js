@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components'
-
+import Img from './bgimg.jpg'
 const BodyWrapper = styled.div`
 display: flex;
 flex-direction: column;
@@ -23,7 +23,7 @@ background-color: darkblue;
 text-align:center;
 color: white;
 flex: 1;
-
+background-image: url('https://i.imgur.com/bIUcmrM.jpg');
 }
 `
 const UnderHeaderBlock = styled.div`
@@ -44,18 +44,9 @@ class Header extends Component {
             <BodyWrapper>
                 
                     <HeaderBlock>
-                        App Name
+                        
                     </HeaderBlock>
-                
-                <UnderBodyWrapper>
-                    <UnderHeaderBlock>
-                        Another
-                    </UnderHeaderBlock>
-              
-                    <UnderHeaderBlock>
-                        Another
-                    </UnderHeaderBlock>
-                </UnderBodyWrapper>
+               
             </BodyWrapper>
         );
     }

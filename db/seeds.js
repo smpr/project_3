@@ -12,6 +12,7 @@ const fakeNews = new News({
     genre: "Buisness",
     titlelink:"This Is filler!",
     picture: "Image Link",
+    imageSourceArticle: "https://i.imgur.com/vsez1yd.png",
     plot: "Something Something Darkside",
 })
 const fakeSports = new News({
@@ -20,6 +21,7 @@ const fakeSports = new News({
   date: "Todays Today",
   genre: "Sports",
   titlelink:"This Is fillerAgain!!",
+  imageSourceArticle:"https://i.imgur.com/vsez1yd.png",
   picture: "Image Link again",
   plot: "Something Something Darkside part 2",
 })
@@ -32,7 +34,7 @@ const newsList = new NewsList({
 const newsListAgain = new NewsList({
   genre: 'Sports',
   name: 'SomeSportsCompany',
-  imageSource: "https://i.imgur.com/YH2TBRL.jpg",
+  imageSource: "https://i.imgur.com/x7lZNZ8.png",
   news:[fakeNews]
 })
 const bob = new User({

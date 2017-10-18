@@ -18,6 +18,17 @@ margin: 10px auto;
 background-color: rgba(255, 243, 149, .35)
 
 `
+const ImageBlock = styled.div`
+
+img{
+    max-width: 75px
+}
+width: 50px;
+height: auto;
+margin: 0px;
+
+
+`
 class ArticleList extends Component {
     state = {
         list: {
@@ -56,7 +67,7 @@ class ArticleList extends Component {
                     const newsId = this.props.match.params.newsid
                     const articleId= this.props.match.params.articleId
                     console.log(article)
-          return (<div><Link  key={article._id} to={`/user/${userId}/newslist/${newsId}/articlelist/${article._id}/article`}>{article.titlelink} </Link></div>)
+          return (<div><ImageBlock><Link  key={article._id} to={`/user/${userId}/newslist/${newsId}/articlelist/${article._id}/article`}><img src={article.imageSourceArticle} alt={article.titlelink} title={article.titlelink}/> </Link></ImageBlock></div>)
         })}
             </NewsBlock>
            </BodyWrapper>

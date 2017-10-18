@@ -86,7 +86,7 @@ class NewsList extends Component {
                         {this.state.users.list.map(list => {
                             console.log(list)
                            
-                            return (<Link key={list._id} to={`/user/${this.props.match.params.id}/newslist/${list._id}/articlelist`}><ImageBlock><img src={list.imageSource} /></ImageBlock></Link>)
+                            return (<ImageBlock><Link key={list._id} to={`/user/${this.props.match.params.id}/newslist/${list._id}/articlelist`}><img src={list.imageSource} /></Link></ImageBlock>)
                         })}
                         
                     </BottomBlock>
