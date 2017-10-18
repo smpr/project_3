@@ -7,12 +7,8 @@ flex-direction: column;
 
 
 `
-const UnderBodyWrapper = styled.div`
-display: flex;
-flex-direction: row;
 
 
-`
 const HeaderBlock = styled.div`
 border: 0;
 border-radius: 0px;
@@ -24,18 +20,6 @@ text-align:center;
 color: white;
 flex: 1;
 background-image: url('https://i.imgur.com/bIUcmrM.jpg');
-}
-`
-const UnderHeaderBlock = styled.div`
-border: 0;
-border-radius: 0px;
-height: 50px;
-margin: 0px auto;
-background-color: darkblue;
-text-align:center;
-color: white;
-flex: 1;
-
 }
 `
 class Header extends Component {

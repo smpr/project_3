@@ -20,6 +20,7 @@ color: white;
 flex: 1;
 Link:{
     text-decoration: none;
+    color: white;
 }
 `
 class Nav extends Component {
