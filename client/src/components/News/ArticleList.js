@@ -2,7 +2,22 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
+const BodyWrapper = styled.div`
+display: flex;
+justify-content: flex-start;
+flex-direction: row-wrap;
 
+
+`
+const NewsBlock = styled.div`
+border: 2px rgba(138, 134, 132, .5);
+border-radius: 2px;
+width: 275px;
+height: 275px;
+margin: 10px auto;
+background-color: rgba(255, 243, 149, .35)
+
+`
 class ArticleList extends Component {
     state = {
         list: {
@@ -34,7 +49,8 @@ class ArticleList extends Component {
       }
     render() {
         return (
-           <div>
+           <BodyWrapper>
+             <NewsBlock>
                 {this.state.list.news.map(article => {
                     const userId = this.props.match.params.id
                     const newsId = this.props.match.params.newsid
@@ -42,7 +58,8 @@ class ArticleList extends Component {
                     console.log(article)
           return (<div><Link  key={article._id} to={`/user/${userId}/newslist/${newsId}/articlelist/${article._id}/article`}>{article.titlelink} </Link></div>)
         })}
-           </div>
+            </NewsBlock>
+           </BodyWrapper>
         );
     }
 }

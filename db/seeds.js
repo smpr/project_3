@@ -26,11 +26,13 @@ const fakeSports = new News({
 const newsList = new NewsList({
   genre: 'Buisness',
   name: 'SomeNewsCompany',
+  imageSource: 'https://i.imgur.com/1LK18Oq.png',
   news:[fakeNews, fakeSports]
 })
 const newsListAgain = new NewsList({
   genre: 'Sports',
   name: 'SomeSportsCompany',
+  imageSource: "https://i.imgur.com/YH2TBRL.jpg",
   news:[fakeNews]
 })
 const bob = new User({

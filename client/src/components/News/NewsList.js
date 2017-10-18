@@ -3,6 +3,7 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import Article from '../News/Article'
+import Img from 'react-image'
 
 const BodyWrapper = styled.div`
 display: flex;
@@ -27,6 +28,15 @@ width: 275px;
 height: 275px;
 margin: 10px auto;
 background-color: rgba(255, 243, 149, .35)
+
+`
+const ImageBlock = styled.div`
+
+
+width: 50px;
+height: auto;
+margin: 0px;
+
 
 `
 
@@ -61,23 +71,25 @@ class NewsList extends Component {
 
     render() {
         return (
-            <div>
+            <BodyWrapper>
                 <BodyWrapper>
                     <TopBlock>
-                        <Link to={`/user/${this.props.match.params.id}/Info`}>User info</Link>
+                        <Link to={`/user/${this.props.match.params.id}/Info`}> {this.state.users.firstName} {this.state.users.lastName}</Link>
 
                     </TopBlock>
                 </BodyWrapper>
                 <BodyWrapper>
                     <BottomBlock>
+                        
                         {this.state.users.list.map(list => {
                             console.log(list)
                            
-                            return (<div><Link key={list._id} to={`/user/${this.props.match.params.id}/newslist/${list._id}/articlelist`}>{list.genre}- {list.name}</Link></div>)
+                            return (<div><Link key={list._id} to={`/user/${this.props.match.params.id}/newslist/${list._id}/articlelist`}>{list.genre} - {list.name}<ImageBlock><img src={list.imageSource} /></ImageBlock></Link></div>)
                         })}
+                        
                     </BottomBlock>
                 </BodyWrapper>
-            </div>
+            </BodyWrapper>
         )
     }
 }

@@ -37,6 +37,9 @@ const ListSchema = mongoose.Schema({
     name: {
         type: String,
     },
+    imageSource: {
+        type: String
+    },
     news: [NewsSchema]
 })
 const userSchema = mongoose.Schema({
