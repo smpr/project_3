@@ -50,18 +50,18 @@ padding: 25px;
 
 `
 class Article extends Component {
-    // This sets the initial state for the component. 
-    state = {
-     news:{
-       sourcelink: '',
-       author: '',
-       date: '',
-       titlelink: '',
-       plot:'',
-     }
+  // This sets the initial state for the component. 
+  state = {
+    news: {
+      sourcelink: '',
+      author: '',
+      date: '',
+      titlelink: '',
+      plot: '',
     }
+  }
 
-  componentWillMount () {
+  componentWillMount() {
     this.getAllArticles()
   }
 
@@ -74,32 +74,37 @@ class Article extends Component {
       console.log(articleId)
       const res = await axios.get(`/api/users/${userId}/list/${newsId}/article/${articleId}`)
       console.log(res.data)
-      this.setState({news: res.data})
+      this.setState({ news: res.data })
     } catch (err) {
       console.log(err)
     }
   }
-    render(){
+  render() {
     return (
-        <div>
-            <HeaderBlock>
-                <InfoBlock>
-                <b>Source:</b> {this.state.news.sourcelink}
-                </InfoBlock>
-               
-                <InfoBlock>
-                <b>Author:</b>{this.state.news.author}
-                </InfoBlock>
-                <InfoBlock>
-                <b>Date:</b>{this.state.news.date}
-                </InfoBlock>
-            </HeaderBlock>
-            <BodyBlock>
-               <b>Title:</b>{this.state.news.titlelink} <br />
-               {this.state.news.plot}
-            </BodyBlock>
-        </div>
+      <div>
+        <HeaderBlock>
+          <InfoBlock>
+            <b>Source:</b> {this.state.news.sourcelink}
+          </InfoBlock>
+
+          <InfoBlock>
+            <b>Author:</b>{this.state.news.author}
+          </InfoBlock>
+          <InfoBlock>
+            <b>Date:</b>{this.state.news.date}
+          </InfoBlock>
+        </HeaderBlock>
+        <BodyBlock>
+          <div>
+          <b>Title:</b>{this.state.news.titlelink} 
+          </div>
+          <div>
+            {this.state.news.plot}
+          </div>
+          <Link to="/comingsoon"><button>Save Article</button></Link>
+        </BodyBlock>
+      </div>
     );
-};
+  };
 }
 export default Article;

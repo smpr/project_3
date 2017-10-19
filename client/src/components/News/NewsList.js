@@ -63,6 +63,7 @@ class NewsList extends Component {
                             return (<Link key={list._id} to={`/user/${this.props.match.params.id}/newslist/${list._id}/articlelist`}><img src={list.imageSource} /></Link>)
                         })}<br />
                     </ImageBlock>
+                    <Link to="/comingsoon"><button>Add News Source</button></Link>
                 </NewsBlock>
             </BodyWrapper>
         )

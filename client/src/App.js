@@ -12,6 +12,7 @@ import CreateNewsList from './components/News/CreatNewsList.js'
 import CreateUser from './components/Users/CreateUser'
 import Article from './components/News/Article'
 import ArticleList from './components/News/ArticleList'
+import ComingSoon from './components/Home/ComingSoon'
 
 class App extends Component {
   render () {
@@ -33,7 +34,7 @@ class App extends Component {
                   <Route exact path="/User/:id/NewsList/create" component={CreateNewsList} />
                   <Route exact path="/User/:id/NewsList/:newsid/ArticleList" component={ArticleList} />
                   <Route exact path="/User/:id/NewsList/:newsid/ArticleList/:articleId/article" component={Article} />
-      
+                  <Route exact path="/ComingSoon" component={ComingSoon} />
                 </Switch>
               </div>
             </Router>)

@@ -13,4 +13,6 @@ I started this application with the goal to eventually hook it up to a external 
 <br/>
 <b>My Struggles:</b><br/>
 With my objective in mind, I was trying to grasp a better understanding of React in general and more specifically states and props. There were several roadblocks hit during designing that caused me to change the layout. 
-
+<br/>
+<b>Reach Goals:</b><br/>
+I would love to add a filter option on the news source page and add the ability to save favorite articles. 

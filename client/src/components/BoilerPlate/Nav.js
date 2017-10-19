@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
+import { browserHistory } from 'react-router'
 const BodyWrapper = styled.div`
 display: flex;
 justify-content: flex-start;
@@ -25,16 +26,16 @@ class Nav extends Component {
         return (
             <BodyWrapper>
                 <NavBlock >
-                <Link to='#'>Back</Link>
+                <Link to='/comingsoon'>Back</Link>
                 </NavBlock>
                 <NavBlock>
                 <Link to='/'>Home</Link>
                 </NavBlock>
                 <NavBlock>
-                <Link to='/'>Articles</Link>
+                <Link to='/comingsoon'>Articles</Link>
                 </NavBlock>
                 <NavBlock>
-                <Link to='/'>Whats New</Link>
+                <Link to='/comingsoon'>Whats New</Link>
                 </NavBlock>
             </BodyWrapper>
         );
