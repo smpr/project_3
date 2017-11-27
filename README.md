@@ -2,7 +2,7 @@
 Trello: https://trello.com/b/MAWQLudM/wdi-project-3<br/>
 Heroku: https://glenn-brown-project-3.herokuapp.com/<br/>
 Wire Frames: https://imgur.com/a/nJImo<br/>
-ERD: https://i.imgur.com/jLynpZ2.jpg<br/>
+<h3>ERD:</h3><img src=project3erd.png />
 <br/>
 
 <b>Objective:</b><br/>
