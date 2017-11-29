@@ -56,7 +56,7 @@ class NewsList extends Component {
             <BodyWrapper>
                 <Link to={`/user/${this.props.match.params.id}/Info`}> {this.state.users.firstName} {this.state.users.lastName}</Link>
                 <NewsBlock>
-                Sources: <br />
+                    Sources: <br />
                     <ImageBlock>
                         {this.state.users.list.map(list => {
                             console.log(list)

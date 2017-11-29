@@ -12,9 +12,9 @@ class CreateUser extends Component {
 
   handleChange = (event) => {
     const attribute = event.target.name
-    const updateUser = {...this.state.users}
+    const updateUser = { ...this.state.users }
     updateUser[attribute] = event.target.value
-    this.setState({users: updateUser})
+    this.setState({ users: updateUser })
   }
 
   handleSubmit = async (event) => {
@@ -23,10 +23,10 @@ class CreateUser extends Component {
     const res = await axios.post('/api/users', {
       'user': this.state.users
     })
-    this.setState({redirectToUser: true, userId: res.data._id})
+    this.setState({ redirectToUser: true, userId: res.data._id })
   }
 
-  render () {
+  render() {
     if (this.state.redirectToUser) {
       return <Redirect to={`/user/${this.state.userId}/newslist`} />
     }

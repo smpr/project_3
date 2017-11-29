@@ -69,7 +69,7 @@ class UserInfo extends Component {
     const userid = this.props.match.params.id
     const res = await axios.patch(`/api/users/${userid}`, {
       user: this.state.user,
-    
+
 
     })
     this.setState({ user: res.data, redirectToHome: true })
@@ -81,22 +81,22 @@ class UserInfo extends Component {
       return <Redirect to={`/users`} />
     }
     return (
-      
+
       <BodyWrapper>
         <UserBlock>
-          <br/>
+          <br />
           <h2><b>Edit User</b></h2>
-          <br/>
+          <br />
           First Name: <input onChange={this.handleChange} name="firstName" value={this.state.user.firstName} />
-        
-        <div>
-          Last Name: <input onChange={this.handleChange} name="lastName" value={this.state.user.lastName} />
-        </div>
-        <div>
-          Email:<input onChange={this.handleChange} name="email" value={this.state.user.email} />
-        </div>
-        <button onClick={this.deleteUser}>Delete User</button>
-        <button onClick={this.editUser}>Edit</button>
+
+          <div>
+            Last Name: <input onChange={this.handleChange} name="lastName" value={this.state.user.lastName} />
+          </div>
+          <div>
+            Email:<input onChange={this.handleChange} name="email" value={this.state.user.email} />
+          </div>
+          <button onClick={this.deleteUser}>Delete User</button>
+          <button onClick={this.editUser}>Edit</button>
         </UserBlock>
       </BodyWrapper>
     );

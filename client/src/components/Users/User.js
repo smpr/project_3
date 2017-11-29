@@ -15,7 +15,6 @@ class User extends Component {
   }
 
   // Use axios to get all users
-  // async/await is being used here instead of promises
   getAllUsers = async () => {
     try {
       const res = await axios.get('/api/users')
@@ -24,17 +23,6 @@ class User extends Component {
       console.log(err)
     }
   }
-
-  // Using Promise syntax
-  // getAllUsers = () => {
-  //   axios.get('/api/users').then((res) => {
-  //     this.setState({users: res.data})
-  //   })
-  //  .catch((err) => {
-  //    console.log(err)
-  //  })
-  // }
-
   render () {
     return (
       <div>
@@ -45,8 +33,7 @@ class User extends Component {
           // and create a link
           return (<Link key={user._id} to={`/Users/${user._id}`}>{user.firstName}</Link>)
         })}
-        {/* Always look for opportunities to make your components simple */}
-        {/* Remember the Single Responsibility Principle! */}
+
         
       </div>
     )

@@ -12,9 +12,9 @@ class CreateNewsList extends Component {
 
   handleChange = (event) => {
     const attribute = event.target.name
-    const updateUser = {...this.state.users}
+    const updateUser = { ...this.state.users }
     updateUser[attribute] = event.target.value
-    this.setState({users: updateUser})
+    this.setState({ users: updateUser })
   }
 
   handleSubmit = async (event) => {
@@ -23,10 +23,10 @@ class CreateNewsList extends Component {
     const res = await axios.post('/api/users', {
       'user': this.state.users
     })
-    this.setState({redirectToNewsList: true, userId: res.data._id})
+    this.setState({ redirectToNewsList: true, userId: res.data._id })
   }
 
-  render () {
+  render() {
     if (this.state.redirectToNewsList) {
       return <Redirect to={`/user/${this.state.userId}/newslist`} />
     }
@@ -48,7 +48,7 @@ class CreateNewsList extends Component {
               value={this.state.users.name}
               name="name" type="text" />
           </div>
-         
+
           <button>Create</button>
         </form>
       </div>

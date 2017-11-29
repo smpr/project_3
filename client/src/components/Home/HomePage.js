@@ -30,8 +30,8 @@ class HomePage extends Component {
     }]
   }
 
- 
-  componentWillMount () {
+
+  componentWillMount() {
     this.getAllUsers()
   }
 
@@ -39,22 +39,22 @@ class HomePage extends Component {
   getAllUsers = async () => {
     try {
       const res = await axios.get('/api/users')
-      this.setState({users: res.data})
+      this.setState({ users: res.data })
     } catch (err) {
       console.log(err)
     }
   }
 
-  render () {
+  render() {
     return (
       <BodyWrapper>
         <h1></h1>
         <h3><Link to={'/user/create'}>Create</Link></h3>
-        <UserList><b>User List:</b> <br/>{this.state.users.map(user => {
+        <UserList><b>User List:</b> <br />{this.state.users.map(user => {
           return (<Link key={user._id} to={`/user/${user._id}/newslist`}>{user.firstName} {user.lastName}<br /></Link>)
         })}
         </UserList>
-        
+
       </BodyWrapper>
     )
   }

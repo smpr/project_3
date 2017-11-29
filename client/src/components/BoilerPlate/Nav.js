@@ -26,16 +26,16 @@ class Nav extends Component {
         return (
             <BodyWrapper>
                 <NavBlock >
-                <Link to='/comingsoon'>Back</Link>
+                    <Link to='/comingsoon'>Back</Link>
                 </NavBlock>
                 <NavBlock>
-                <Link to='/'>Home</Link>
+                    <Link to='/'>Home</Link>
                 </NavBlock>
                 <NavBlock>
-                <Link to='/comingsoon'>Articles</Link>
+                    <Link to='/comingsoon'>Articles</Link>
                 </NavBlock>
                 <NavBlock>
-                <Link to='/comingsoon'>Whats New</Link>
+                    <Link to='/comingsoon'>Whats New</Link>
                 </NavBlock>
             </BodyWrapper>
         );

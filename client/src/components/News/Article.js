@@ -96,7 +96,7 @@ class Article extends Component {
         </HeaderBlock>
         <BodyBlock>
           <div>
-          <b>Title:</b>{this.state.news.titlelink} 
+            <b>Title:</b>{this.state.news.titlelink}
           </div>
           <div>
             {this.state.news.plot}

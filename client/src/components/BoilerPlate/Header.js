@@ -26,11 +26,11 @@ class Header extends Component {
     render() {
         return (
             <BodyWrapper>
-                
-                    <HeaderBlock>
-                        
-                    </HeaderBlock>
-               
+
+                <HeaderBlock>
+
+                </HeaderBlock>
+
             </BodyWrapper>
         );
     }
